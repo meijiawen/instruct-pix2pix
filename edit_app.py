@@ -101,7 +101,7 @@ def main():
     parser = ArgumentParser()
     parser.add_argument("--resolution", default=512, type=int)
     parser.add_argument("--config", default="configs/generate.yaml", type=str)
-    parser.add_argument("--ckpt", default="checkpoints/instruct-pix2pix-00-22000.ckpt", type=str)
+    parser.add_argument("--ckpt", default="diffusers/pix2pix-sd/instruct-pix2pix-00-22000.ckpt", type=str)
     parser.add_argument("--vae-ckpt", default=None, type=str)
     args = parser.parse_args()
 
