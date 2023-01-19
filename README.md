@@ -1,3 +1,14 @@
+---
+title: InstructPix2Pix
+emoji: {{emoji}}
+colorFrom: {{colorFrom}}
+colorTo: {{colorTo}}
+sdk: gradio
+sdk_version: {{sdkVersion}}
+app_file: edit_app.py
+pinned: true
+---
+
 # InstructPix2Pix: Learning to Follow Image Editing Instructions
 ### [Project Page](https://www.timothybrooks.com/instruct-pix2pix/) | [Paper](https://arxiv.org/abs/2211.09800) | [Data](http://instruct-pix2pix.eecs.berkeley.edu/)
 PyTorch implementation of InstructPix2Pix, an instruction-based image editing model, based on the original [CompVis/stable_diffusion](https://github.com/CompVis/stable-diffusion) repo. <br>
