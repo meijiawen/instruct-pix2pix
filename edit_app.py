@@ -15,6 +15,7 @@ from einops import rearrange
 from omegaconf import OmegaConf
 from PIL import Image, ImageOps
 from torch import autocast
+from huggingface_hub import hf_hub_download
 
 sys.path.append("./stable_diffusion")
 
@@ -101,9 +102,11 @@ def main():
     parser = ArgumentParser()
     parser.add_argument("--resolution", default=512, type=int)
     parser.add_argument("--config", default="configs/generate.yaml", type=str)
-    parser.add_argument("--ckpt", default="diffusers/pix2pix-sd/instruct-pix2pix-00-22000.ckpt", type=str)
+    parser.add_argument("--ckpt", default="instruct-pix2pix-00-22000.ckpt", type=str)
     parser.add_argument("--vae-ckpt", default=None, type=str)
     args = parser.parse_args()
+
+    args.ckpt = hf_hub_download(repo_id="diffusers/pix2pix-sd", filename="instruct-pix2pix-00-22000.ckpt")
 
     config = OmegaConf.load(args.config)
     model = load_model_from_config(config, args.ckpt, args.vae_ckpt)
