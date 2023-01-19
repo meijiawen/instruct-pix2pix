@@ -1,10 +1,6 @@
 ---
 title: InstructPix2Pix
-emoji: {{emoji}}
-colorFrom: {{colorFrom}}
-colorTo: {{colorTo}}
 sdk: gradio
-sdk_version: {{sdkVersion}}
 app_file: edit_app.py
 pinned: true
 ---
