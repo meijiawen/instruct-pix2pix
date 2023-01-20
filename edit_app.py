@@ -192,7 +192,7 @@ def main():
     def reset():
         return [0, "Randomize Seed", 1371, "Fix CFG", 7.5, 1.5, None]
 
-    with gr.Blocks(css="footer {visibility: hidden}") as demo:
+    with gr.Blocks() as demo:
         with gr.Row():
             with gr.Column(scale=1, min_width=100):
                 generate_button = gr.Button("Generate")
