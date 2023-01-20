@@ -1,6 +1,7 @@
 ---
 title: InstructPix2Pix
 sdk: gradio
+sdk_version: 3.16.2
 app_file: edit_app.py
 pinned: true
 ---
