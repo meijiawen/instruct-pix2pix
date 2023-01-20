@@ -3,7 +3,6 @@ from __future__ import annotations
 import math
 import random
 import sys
-from argparse import ArgumentParser
 
 import einops
 import gradio as gr
@@ -99,17 +98,9 @@ def load_model_from_config(config, ckpt, vae_ckpt=None, verbose=False):
 
 
 def main():
-    parser = ArgumentParser()
-    parser.add_argument("--resolution", default=512, type=int)
-    parser.add_argument("--config", default="configs/generate.yaml", type=str)
-    parser.add_argument("--ckpt", default="instruct-pix2pix-00-22000.ckpt", type=str)
-    parser.add_argument("--vae-ckpt", default=None, type=str)
-    args = parser.parse_args()
-
-    args.ckpt = hf_hub_download(repo_id="diffusers/pix2pix-sd", filename="instruct-pix2pix-00-22000.ckpt")
-
-    config = OmegaConf.load(args.config)
-    model = load_model_from_config(config, args.ckpt, args.vae_ckpt)
+    ckpt = hf_hub_download(repo_id="timbrooks/instruct-pix2pix", filename="instruct-pix2pix-00-22000.ckpt")
+    config = OmegaConf.load("configs/generate.yaml")
+    model = load_model_from_config(config, ckpt)
     model.eval().cuda()
     model_wrap = K.external.CompVisDenoiser(model)
     model_wrap_cfg = CFGDenoiser(model_wrap)
@@ -151,7 +142,7 @@ def main():
         image_cfg_scale = round(random.uniform(1.2, 1.8), ndigits=2) if randomize_cfg else image_cfg_scale
 
         width, height = input_image.size
-        factor = args.resolution / max(width, height)
+        factor = 512 / max(width, height)
         factor = math.ceil(min(width, height) * factor / 64) * 64 / min(width, height)
         width = int((width * factor) // 64) * 64
         height = int((height * factor) // 64) * 64
