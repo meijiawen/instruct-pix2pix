@@ -106,6 +106,14 @@ def main():
         return [0, "Randomize Seed", 1371, "Fix CFG", 7.5, 1.5, None]
 
     with gr.Blocks() as demo:
+        gr.HTML("""<h1 style="font-weight: 900; margin-bottom: 7px;">
+   InstructPix2Pix: Learning to Follow Image Editing Instructions
+</h1>
+<p>For faster inference without waiting in queue, you may duplicate the space and upgrade to GPU in settings.
+<br/>
+<a href="https://huggingface.co/spaces/timbrooks/instruct-pix2pix?duplicate=true">
+<img style="margin-top: 0em; margin-bottom: 0em" src="https://bit.ly/3gLdBN6" alt="Duplicate Space"></a>
+<p/>""")
         with gr.Row():
             with gr.Column(scale=1, min_width=100):
                 generate_button = gr.Button("Generate")
