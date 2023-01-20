@@ -22,6 +22,5 @@ kornia==0.6
 -e git+https://github.com/openai/CLIP.git@main#egg=clip
 huggingface-hub
 openai
-gradio
 seaborn
 git+https://github.com/crowsonkb/k-diffusion.git
