@@ -131,7 +131,7 @@ def main():
             edited_image.style(height=512, width=512)
 
         with gr.Row():
-            steps = gr.Number(value=100, precision=0, label="Steps", interactive=True)
+            steps = gr.Number(value=50, precision=0, label="Steps", interactive=True)
             randomize_seed = gr.Radio(
                 ["Fix Seed", "Randomize Seed"],
                 value="Randomize Seed",
