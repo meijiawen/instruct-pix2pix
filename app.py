@@ -22,6 +22,7 @@ If you're not getting what you want, there may be a few reasons:
 5. Increasing the number of steps sometimes improves results.
 6. Do faces look weird? The Stable Diffusion autoencoder has a hard time with faces that are small in the image. Try:
     * Cropping the image so the face takes up a larger portion of the frame.
+7.
 """
 
 
